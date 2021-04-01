@@ -30,10 +30,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-   <include
-       android:id="@+id/toolbar"
-       layout="@layout/layout_app_bar"
-       android:elevation="0dp"/>
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="0dp">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/dimens_24"
+            android:layout_height="@dimen/dimens_24"
+            android:src="@drawable/ic_back" />
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:lineSpacingExtra="7sp"
+            android:text="K11 Guru"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/textSizeMedium2" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <ImageView
         android:id="@+id/guruScratchCard"

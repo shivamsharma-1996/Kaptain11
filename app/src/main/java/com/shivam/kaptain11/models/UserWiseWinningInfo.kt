@@ -1,6 +1,6 @@
 package com.shivam.kaptain11.models
 
-data class InfoXXXX(
+data class UserWiseWinningInfo(
     val earnings: Double,
     val follower_id: String,
     val follower_mobile: String,

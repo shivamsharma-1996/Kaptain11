@@ -74,7 +74,7 @@
             android:lineSpacingExtra="6sp"
             android:textColor="@color/black"
             android:textSize="@dimen/textSizeMedium"
-            android:text="₹150"
+            tools:text="₹150"
             android:layout_marginStart="@dimen/dimens_8"
             android:layout_marginTop="@dimen/dimens_6"
             app:layout_constraintStart_toStartOf="parent"

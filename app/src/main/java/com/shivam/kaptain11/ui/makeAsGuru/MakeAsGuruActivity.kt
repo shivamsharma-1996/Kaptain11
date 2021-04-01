@@ -41,6 +41,9 @@ class MakeAsGuruActivity : BaseActivity(), GuruRetrievedSheetFragment.OnGuruAdde
                 val guruCode = etGuruCode.text.toString().toUpperCase()
                 viewModel.getGuruByCode(guruCode)
             }
+            ivBack.setOnClickListener{
+                finish()
+            }
         }
     }
 

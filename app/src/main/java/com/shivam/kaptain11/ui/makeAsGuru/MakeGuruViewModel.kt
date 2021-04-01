@@ -6,10 +6,13 @@ import android.net.ConnectivityManager
 import android.net.ConnectivityManager.*
 import android.net.NetworkCapabilities.*
 import android.os.Build
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.shivam.kaptain11.MyApplication
+import com.shivam.kaptain11.custom.NoInternetException
 import com.shivam.kaptain11.models.GuruCodeResponse
 import com.shivam.kaptain11.models.MakeAsGuruResponse
 import com.shivam.kaptain11.util.Resource
@@ -23,7 +26,10 @@ class MakeGuruViewModel(
     private val makeGuruRepository: MakeGuruRepository
 ) : AndroidViewModel(app) {
 
-    val guruDetailByCode: MutableLiveData<Resource<GuruCodeResponse>> = MutableLiveData()
+    private val _guruDetailByCode: MutableLiveData<Resource<GuruCodeResponse>> = MutableLiveData()
+    val guruDetailByCode: LiveData<Resource<GuruCodeResponse>>
+        get() = _guruDetailByCode
+
     val makeAsGuruLiveData: MutableLiveData<Resource<MakeAsGuruResponse>> = MutableLiveData()
 
     fun getGuruByCode(guruCode: String) = viewModelScope.launch(Dispatchers.IO) {
@@ -41,25 +47,31 @@ class MakeGuruViewModel(
             }
         } catch (ex: Throwable) {
             when (ex) {
-                is IOException -> guruDetailByCode.postValue(Resource.Error("Network Failure"))
-                else -> guruDetailByCode.postValue(Resource.Error("Parsing Error"))
+                is IOException -> _guruDetailByCode.postValue(Resource.Error("Network Failure"))
+                else -> _guruDetailByCode.postValue(Resource.Error("Parsing Error"))
             }
         }
     }
 
     private suspend fun safeGuruByCodeCall(code: String) {
-        guruDetailByCode.postValue(Resource.Loading())
         try {
+            when {
+                code.isNullOrEmpty() -> {
+                    _guruDetailByCode.postValue(Resource.Error("Code should not be empty!"))
+                    return
+                }
+            }
+            _guruDetailByCode.postValue(Resource.Loading())
             if (hasInternetConnection()) {
                 val response = makeGuruRepository.getGuruByCode(code)
-                guruDetailByCode.postValue(handleGuruByCodeResponse(response))
+                _guruDetailByCode.postValue(handleGuruByCodeResponse(response))
             } else {
-                guruDetailByCode.postValue(Resource.Error("No Internet Connection"))
+                _guruDetailByCode.postValue(Resource.Error("No Internet Connection"))
             }
         } catch (ex: Throwable) {
             when (ex) {
-                is IOException -> guruDetailByCode.postValue(Resource.Error("Network Failure"))
-                else -> guruDetailByCode.postValue(Resource.Error("Parsing Error"))
+                is IOException -> _guruDetailByCode.postValue(Resource.Error("Network Failure"))
+                else -> _guruDetailByCode.postValue(Resource.Error("Parsing Error"))
             }
         }
     }

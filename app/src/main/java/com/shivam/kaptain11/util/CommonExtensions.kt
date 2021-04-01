@@ -41,25 +41,6 @@ fun Context.dismissKeyboard(view: View?) {
     }
 }
 
-fun Activity.hasPermissionForImage(permissionCodeRead: Int, permissionCodeWrite: Int) : Boolean{
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        if ((this.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED)
-            && (this.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED)
-        ) {
-            val permission = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-            val permissionCoarse = arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-
-            this.requestPermissions(permission, permissionCodeRead) // GIVE AN INTEGER VALUE FOR PERMISSION_CODE_READ LIKE 1001
-            this.requestPermissions(permissionCoarse, permissionCodeWrite) // GIVE AN INTEGER VALUE FOR PERMISSION_CODE_WRITE LIKE 1002
-            return false
-        } else {
-            return true
-        }
-    }
-    return false
-}
-
-
 fun View.snackbar(message: String) {
     Snackbar.make(this, message, Snackbar.LENGTH_LONG).also { snackbar ->
         snackbar.setAction("Ok") {

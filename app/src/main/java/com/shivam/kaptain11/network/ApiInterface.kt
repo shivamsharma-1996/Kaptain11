@@ -8,32 +8,31 @@ import retrofit2.http.*
 
 interface ApiInterface {
 
-    @GET("getGuruByCode")
+    @GET("userService/getGuruByCode")
     @Headers("Authorization: $FOLLOWER_AUTH_TOKEN")
     suspend fun getGuruByCode(
         @Query("code") code: String,
     ): Response<GuruCodeResponse>
 
     @FormUrlEncoded
-    @POST("makeAsGuru")
+    @POST("userService/makeAsGuru")
     @Headers("Authorization: $FOLLOWER_AUTH_TOKEN")
     suspend fun makeSomeoneAsGuru(
         @Field("guruId") code: String,
     ): Response<MakeAsGuruResponse>
 
-
     @GET("walletService/getGuruDetails")
     @Headers("Authorization: $GURU_AUTH_TOKEN")
     suspend fun getGuruDetails(): Response<GetGuruDetailResponse>
 
-    @GET("getGuruWinnings/{offset}")
-    @Headers("Authorization: $FOLLOWER_AUTH_TOKEN")
+    @GET("walletService/getGuruWinnings/{offset}")
+    @Headers("Authorization: $GURU_AUTH_TOKEN")
     suspend fun getRecentWinnings(
         @Path("offset") offset : Int
     ): Response<GetGuruWinningsResponse>
 
-    @GET("getGuruUserEarnings/{offset}")
-    @Headers("Authorization: $FOLLOWER_AUTH_TOKEN")
+    @GET("walletService/getGuruUserEarnings/{offset}")
+    @Headers("Authorization: $GURU_AUTH_TOKEN")
     suspend fun getUserWiseWinnings(
         @Path("offset") offset : Int
     ): Response<GetUserWiseWinningResponse>

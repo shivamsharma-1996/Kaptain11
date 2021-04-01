@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shivam.kaptain11.R
-import com.shivam.kaptain11.models.InfoXXXX
+import com.shivam.kaptain11.models.UserWiseWinningInfo
 
 class UserWiseEarningsAdapter(private val context: Context) :
     RecyclerView.Adapter<UserWiseEarningsAdapter.UserWiseEarningHolder>() {
-    private val userWiseEarningsList = ArrayList<InfoXXXX>();
+    private val userWiseEarningsList = ArrayList<UserWiseWinningInfo>();
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserWiseEarningHolder {
         val view = LayoutInflater.from(parent.context).inflate(
@@ -34,7 +34,7 @@ class UserWiseEarningsAdapter(private val context: Context) :
         return userWiseEarningsList.size
     }
 
-    fun updateData(userWiseEarningData: List<InfoXXXX>) {
+    fun updateData(userWiseEarningData: List<UserWiseWinningInfo>) {
         userWiseEarningsList.clear()
         userWiseEarningsList.addAll(userWiseEarningData)
         notifyDataSetChanged()

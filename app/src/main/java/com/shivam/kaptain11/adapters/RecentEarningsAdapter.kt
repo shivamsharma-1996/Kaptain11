@@ -8,10 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.shivam.kaptain11.R
 import com.shivam.kaptain11.models.Output
-import com.shivam.kaptain11.util.AppUtil
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
 
 class RecentEarningsAdapter(private val context: Context)
     : RecyclerView.Adapter<RecentEarningsAdapter.RecentEarningHolder>() {
@@ -28,9 +24,9 @@ class RecentEarningsAdapter(private val context: Context)
     }
 
     override fun onBindViewHolder(holder: RecentEarningHolder, position: Int) {
-        val recentWinning = allWinnings[position]
+        val winningObject = allWinnings[position]
+        holder.tvAmountWon.text = winningObject.amount.toString()
         /* val date: Date? = AppUtil.convertIsoDateTime(recentWinning.creation_date)
-
         val matchDate = SimpleDateFormat("MMM dd, yyyy").format(date)
         val matchTime = SimpleDateFormat("hh:mm a").format(date)
 
@@ -49,7 +45,8 @@ class RecentEarningsAdapter(private val context: Context)
     }
 
     inner class RecentEarningHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvContestTiming: TextView = itemView.findViewById(R.id.tvContestTiming);
+        val tvContestTiming: TextView = itemView.findViewById(R.id.tvContestTiming)
+        val tvAmountWon : TextView = itemView.findViewById(R.id.tvAmountWon)
     }
 }
 

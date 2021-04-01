@@ -1,23 +1,25 @@
 package com.shivam.kaptain11.ui.guruDasboard
 
 import android.app.Activity
-import android.content.ClipboardManager
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
-import androidx.core.content.res.TypedArrayUtils.getText
+import android.view.WindowManager
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.github.dhaval2404.imagepicker.ImagePicker
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.shivam.kaptain11.R
 import com.shivam.kaptain11.base.BaseActivity
 import com.shivam.kaptain11.databinding.ActivityGuruDashboardBinding
+import com.shivam.kaptain11.models.GuruDetailInfo
 import com.shivam.kaptain11.util.*
 import kotlinx.android.synthetic.main.activity_make_as_guru.*
+import kotlinx.android.synthetic.main.item_userwise_earnings.*
+import kotlinx.android.synthetic.main.layout_guru_earnings_stat.*
 import kotlinx.android.synthetic.main.sheet_guru_added.view.*
-import kotlinx.android.synthetic.main.sheet_guru_added.view.btnOk
 import kotlinx.android.synthetic.main.sheet_update_guru_name.view.*
 import java.io.File
 
@@ -27,9 +29,6 @@ class GuruDashboardActivity : BaseActivity() {
 
     companion object {
         const val TAG = "GuruDashboardActivity"
-        const val PERMISSION_CODE_READ = 101
-        const val PERMISSION_CODE_WRITE = 102
-        const val IMAGE_PICK_CODE = 103
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,7 +36,7 @@ class GuruDashboardActivity : BaseActivity() {
         binding = ActivityGuruDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setupUI()
+        setup()
         initializeObserver()
         viewModel.fetchGuruDetails()
     }
@@ -49,9 +48,10 @@ class GuruDashboardActivity : BaseActivity() {
                     hideLoading()
                     response.data?.let { getGuruDetailResponse ->
                         if (getGuruDetailResponse.success) {
-                            TODO("Display GURU details here")
+                            val guruDetailResponse = getGuruDetailResponse.info
+                            updateUI(guruDetailResponse)
                         } else {
-                            showToast("" +getGuruDetailResponse.description)
+                            showToast("" + getGuruDetailResponse.description)
                         }
                     }
                 }
@@ -70,7 +70,21 @@ class GuruDashboardActivity : BaseActivity() {
 
     }
 
-    private fun setupUI() {
+    private fun updateUI(guruDetailResponse: GuruDetailInfo) {
+        binding.apply {
+            tvGuruName.text = guruDetailResponse.username
+            tvTotalEarning.text = "₹" + guruDetailResponse.dayEarnings
+            tvDayEarning.text = "₹" + guruDetailResponse.dayEarnings
+            tvGuruCode.text = guruDetailResponse.code
+            val profilePicUrl = guruDetailResponse.display_picture
+            profilePicUrl?.let {
+                Glide.with(this@GuruDashboardActivity).load(guruDetailResponse.display_picture)
+                    .placeholder(R.drawable.ic_profile_default).into(ivGuruImage)
+            }
+        }
+    }
+
+    private fun setup() {
         val viewModelProviderFactory =
             GuruProfileViewModelProviderFactory(application, GuruProfileRepository())
         viewModel =
@@ -87,15 +101,15 @@ class GuruDashboardActivity : BaseActivity() {
                     )    //Final image resolution will be less than 1080 x 1080(Optional)
                     .start()
             }
-            ivBack.setOnClickListener{
+            ivBack.setOnClickListener {
                 finish()
             }
-            tvCopyCode.setOnClickListener{
+            tvCopyCode.setOnClickListener {
                 tvGuruCode?.let {
                     copyToClipboard(tvGuruCode.text.toString())
                 }
             }
-            ivEditGuruProfile.setOnClickListener{
+            ivEditGuruProfile.setOnClickListener {
                 launchUpdateGuruSheet()
             }
 
@@ -125,10 +139,13 @@ class GuruDashboardActivity : BaseActivity() {
     private fun launchUpdateGuruSheet() {
         val bottomSheetView = layoutInflater.inflate(R.layout.sheet_update_guru_name, null)
         val dialog = BottomSheetDialog(this)
+        dialog.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+
         dialog.setContentView(bottomSheetView)
         bottomSheetView.btnUpdateName.setOnClickListener {
             dialog.dismiss()
         }
+        dialog.show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

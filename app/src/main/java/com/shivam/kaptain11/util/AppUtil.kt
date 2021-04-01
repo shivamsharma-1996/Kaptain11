@@ -9,16 +9,6 @@ import java.util.*
 object AppUtil {
 
     @JvmStatic
-    fun pickImageFromGallery(activity: Activity, IMAGE_PICK_CODE: Int) {
-        val intent = Intent(Intent.ACTION_PICK)
-        intent.type = "image/*"
-        activity.startActivityForResult(
-            intent,
-            IMAGE_PICK_CODE
-        )
-    }
-
-    @JvmStatic
     @Throws(ParseException::class)
     fun convertIsoDateTime(timestamp: String?): Date? {
         val format = SimpleDateFormat(

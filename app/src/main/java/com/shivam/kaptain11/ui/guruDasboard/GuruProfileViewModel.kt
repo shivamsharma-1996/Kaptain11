@@ -96,6 +96,17 @@ class GuruProfileViewModel(
     private fun handleRecentWinningsResponse(response: Response<GetGuruWinningsResponse>): Resource<GetGuruWinningsResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
+                //TO_DO - UnComment the following code to enable the pagination
+                /*recentWinningPageNumber++
+                if (resultResponse == null) {
+                    //true, when it is the first page
+                    recentWinningsResponse = resultResponse
+                } else {
+                    val oldWinnings = recentWinningsResponse.info
+                    val newWinnigs = resultResponse.info
+                    oldWinnings?.addAll(newWinnigs)
+                }
+                return Resource.Success(recentWinningsResponse ?: resultResponse)*/
                 return Resource.Success(resultResponse)
             }
         }
@@ -105,6 +116,17 @@ class GuruProfileViewModel(
     private fun handleUserWiseWinningsResponse(response: Response<GetUserWiseWinningResponse>): Resource<GetUserWiseWinningResponse> {
         if (response.isSuccessful) {
             response.body()?.let { resultResponse ->
+                //TO_DO - UnComment the following code to enable the pagination
+                /*recentWinningPageNumber++
+                if (resultResponse == null) {
+                    //true, when it is the first page
+                    userWiseWinningsResponse = resultResponse
+                } else {
+                    val oldWinnings = userWiseWinningsResponse.info
+                    val newWinnigs = resultResponse.info
+                    oldWinnings?.addAll(newWinnigs)
+                }
+                return Resource.Success(userWiseWinningsResponse ?: resultResponse)*/
                 return Resource.Success(resultResponse)
             }
         }
