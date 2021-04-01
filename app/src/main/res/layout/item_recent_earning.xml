@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cvGuruDetails"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimens_16"
+    android:layout_marginTop="@dimen/dimens_10"
+    android:layout_marginEnd="@dimen/dimens_16"
+    app:cardCornerRadius="@dimen/card_corner_radius"
+    app:cardElevation="@dimen/card_elevation">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/viewHeader"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#e6e6e6"
+            app:layout_constraintBottom_toBottomOf="@+id/tvContestTiming"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvContestTiming" />
+
+        <TextView
+            android:id="@+id/tvContestTiming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="11th April | 7:30PM"
+            android:textSize="@dimen/textSizeMini"
+            android:letterSpacing="0.1"
+            android:gravity="center"
+            android:paddingTop="@dimen/dimens_6"
+            android:paddingBottom="@dimen/dimens_6"
+            android:textColor="@color/brownish_grey"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+
+        <TextView
+            android:id="@+id/tvMatchType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CSK vs RCB"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/dimens_8"
+            android:layout_marginStart="@dimen/dimens_16"
+            android:textSize="@dimen/textSizeMedium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewHeader"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Match"
+            android:textSize="@dimen/textSizeMini"
+            android:textColor="@color/textSecondary"
+            android:layout_marginBottom="@dimen/dimens_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvMatchType"
+            app:layout_constraintStart_toStartOf="@+id/tvMatchType"/>
+
+            <TextView
+                android:id="@+id/tvAmountWon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹150.54"
+                android:textColor="@color/green"
+                android:textSize="@dimen/textSizeMedium"
+                android:layout_marginEnd="@dimen/dimens_16"
+                android:fontFamily="@font/source_sans_pro_semibold"
+                app:layout_constraintTop_toTopOf="@+id/tvMatchType"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Amount won"
+            android:textSize="@dimen/textSizeMini"
+            android:textColor="@color/textSecondary"
+            app:layout_constraintTop_toBottomOf="@+id/tvAmountWon"
+            app:layout_constraintEnd_toEndOf="@+id/tvAmountWon"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

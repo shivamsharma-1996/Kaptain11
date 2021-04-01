@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGrey"
+    tools:context=".ui.guruDasboard.GuruDashboardActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/main_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/source_sans_pro_semibold"
+                android:lineSpacingExtra="7sp"
+                android:text="@string/title_guru"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSizeMedium2" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvGuruDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:layout_marginTop="@dimen/dimens_10"
+        android:layout_marginEnd="@dimen/dimens_16"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        app:layout_constraintTop_toBottomOf="@+id/main_app_bar">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivGuruImage"
+                android:layout_width="@dimen/dimens_56"
+                android:layout_height="@dimen/dimens_56"
+                android:src="@drawable/ic_profile_default"
+                android:layout_marginTop="@dimen/dimens_10"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvGuruName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_6"
+                android:fontFamily="@font/source_sans_pro_semibold"
+                android:lineSpacingExtra="40sp"
+                android:textColor="@color/black"
+                android:textSize="@dimen/textSizeMedium"
+                android:layout_marginBottom="@dimen/dimens_6"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivGuruImage"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:text="Chakri_Abhi" />
+
+            <View
+                android:id="@+id/viewBg"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_edit"
+                android:layout_marginTop="@dimen/dimens_8"
+                android:layout_marginEnd="@dimen/dimens_6"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:background="@drawable/bg_solid_round_dark_grey"/>
+
+            <ImageView
+                android:id="@+id/ivEditGuruProfile"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintStart_toStartOf="@+id/viewBg"
+                app:layout_constraintEnd_toEndOf="@+id/viewBg"
+                app:layout_constraintTop_toTopOf="@+id/viewBg"
+                app:layout_constraintBottom_toBottomOf="@+id/viewBg"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvGuruEarnings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        android:layout_marginTop="@dimen/dimens_10"
+        app:layout_constraintTop_toBottomOf="@+id/cvGuruDetails"
+        app:layout_constraintStart_toStartOf="@+id/cvGuruDetails"
+        app:layout_constraintEnd_toEndOf="@+id/cvGuruDetails">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tvTotalEarning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹15,500.34"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/dimens_10"
+                android:textSize="@dimen/textSizeXXLarge"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/tvLabelTotalEarning"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_total_earnings"
+                android:textStyle="bold"
+                android:layout_marginTop="@dimen/dimens_4"
+                android:lineSpacingExtra="6sp"
+                android:textColor="@color/textPrimary"
+                android:textSize="@dimen/textSizeMedium"
+                app:layout_constraintTop_toBottomOf="@+id/tvTotalEarning"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimens_8"
+                android:layout_marginBottom="@dimen/dimens_10"
+                layout="@layout/layout_guru_earnings_stat"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelTotalEarning"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvRecentEarnings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        android:layout_marginTop="@dimen/dimens_10"
+        app:layout_constraintTop_toBottomOf="@+id/cvGuruEarnings"
+        app:layout_constraintStart_toStartOf="@+id/cvGuruDetails"
+        app:layout_constraintEnd_toEndOf="@+id/cvGuruDetails">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivRecentTransactions"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_recent_transactions"
+                android:layout_marginStart="@dimen/dimens_12"
+                android:layout_marginTop="@dimen/dimens_12"
+                android:layout_marginBottom="@dimen/dimens_12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/dimens_8"
+                android:text="@string/label_recent_earnings"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivRecentTransactions"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_next"
+                android:layout_marginEnd="@dimen/dimens_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvUserWiseEarnings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        android:layout_marginTop="@dimen/dimens_10"
+        app:layout_constraintTop_toBottomOf="@+id/cvRecentEarnings"
+        app:layout_constraintStart_toStartOf="@+id/cvGuruDetails"
+        app:layout_constraintEnd_toEndOf="@+id/cvGuruDetails">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivUserWiseEarning"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_user_wise_earning"
+                android:layout_marginStart="@dimen/dimens_12"
+                android:layout_marginTop="@dimen/dimens_12"
+                android:layout_marginBottom="@dimen/dimens_12"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginStart="@dimen/dimens_8"
+                android:text="@string/label_userwise_earnings"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivUserWiseEarning"/>
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_next"
+                android:layout_marginEnd="@dimen/dimens_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/tvLabelCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_your_code"
+        android:layout_marginTop="@dimen/dimens_16"
+        android:textSize="@dimen/textSizeMedium"
+        android:textColor="@color/textSecondary"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cvUserWiseEarnings"/>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dimens_56"
+        android:background="@drawable/bg_dotted_stroke_light_grey"
+        android:layout_marginTop="@dimen/dimens_8"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelCode"
+        app:layout_constraintStart_toStartOf="@+id/cvGuruDetails"
+        app:layout_constraintEnd_toEndOf="@+id/cvGuruDetails"
+        />
+
+    <TextView
+        android:id="@+id/tvGuruCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:textSize="@dimen/textSizeMedium2"
+        android:textColor="@color/black"
+        android:letterSpacing="0.01"
+        android:text="78KDB7Y"
+        android:layout_marginStart="@dimen/dimens_22"
+        android:layout_marginTop="@dimen/dimens_24"
+        app:layout_constraintStart_toStartOf="@+id/cvGuruDetails"
+        app:layout_constraintTop_toBottomOf="@+id/tvLabelCode"
+        />
+
+
+    <TextView
+        android:id="@+id/tvCopyCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Copy Code"
+        android:textColor="@color/green"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:letterSpacing="0.01"
+        android:layout_marginEnd="@dimen/dimens_20"
+        app:layout_constraintEnd_toEndOf="@+id/cvGuruDetails"
+        app:layout_constraintTop_toTopOf="@+id/tvGuruCode"
+        app:layout_constraintBottom_toBottomOf="@+id/tvGuruCode"/>
+
+
+    <Button
+        android:id="@+id/btnShareApp"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="@string/button_text_share_app"
+        android:backgroundTint="@color/green"
+        android:layout_marginStart="@dimen/dimens_12"
+        android:layout_marginEnd="@dimen/dimens_12"
+        android:lineSpacingExtra="10sp"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

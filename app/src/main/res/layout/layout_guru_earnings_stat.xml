@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_stroke_semi_curved_lightgrey"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/clDayEarnings">
+    <TextView
+        android:id="@+id/tvFollowerCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:lineSpacingExtra="6sp"
+        android:textColor="@color/black"
+        android:textSize="@dimen/textSizeMedium"
+        android:text="15"
+        android:layout_marginStart="@dimen/dimens_8"
+        android:layout_marginTop="@dimen/dimens_6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/tvLabelActive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="5sp"
+        android:textColor="@color/textSecondary"
+        android:textSize="@dimen/textSizeMini"
+        android:text="@string/label_active"
+        android:layout_marginBottom="@dimen/dimens_6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvFollowerCount"
+        app:layout_constraintTop_toBottomOf="@+id/tvFollowerCount"/>
+
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_followers"
+        android:layout_marginTop="@dimen/dimens_4"
+        android:layout_marginStart="@dimen/dimens_56"
+        android:layout_marginEnd="@dimen/dimens_4"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvFollowerCount"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clDayEarnings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimens_12"
+        android:background="@drawable/bg_stroke_semi_curved_lightgrey"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/clFollowers"
+        app:layout_constraintEnd_toEndOf="parent">
+        <TextView
+            android:id="@+id/tvDayEarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/source_sans_pro_semibold"
+            android:lineSpacingExtra="6sp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSizeMedium"
+            android:text="₹150"
+            android:layout_marginStart="@dimen/dimens_8"
+            android:layout_marginTop="@dimen/dimens_6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvLabelDayEarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="5sp"
+            android:textColor="@color/textSecondary"
+            android:textSize="@dimen/textSizeMini"
+            android:text="@string/label_day_earnings"
+            android:layout_marginBottom="@dimen/dimens_6"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvDayEarning"
+            app:layout_constraintTop_toBottomOf="@+id/tvDayEarning"/>
+
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_winnings"
+            android:layout_marginTop="@dimen/dimens_4"
+            android:layout_marginStart="@dimen/dimens_56"
+            android:layout_marginEnd="@dimen/dimens_4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvDayEarning"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Kaptain11</string>
+    <string name="guru_customer_support_helpline">Do you want to become or be a part of GURU family, Please contact our customer support</string>
+    <string name="credit_guru_and_earn">Credit your GURU and get <b>₹50</b> Scratch card</string>
+    <string name="title_guru">Guru</string>
+    <string name="label_active">Active</string>
+    <string name="label_day_earnings">Day Earnings</string>
+    <string name="label_recent_earnings">Recent Earnings</string>
+    <string name="label_userwise_earnings">Userwise Earnings</string>
+    <string name="button_text_share_app">Share App</string>
+    <string name="are_you_sure_to_make_guru">Are you sure to make GURU?</string>
+    <string name="label_guru">GURU</string>
+    <string name="button_text_make_my_guru">Make my guru</string>
+    <string name="label_success">Success</string>
+    <string name="button_text_ok">OK</string>
+    <string name="button_text_find">Find</string>
+    <string name="hint_enter_a_name">Enter a name</string>
+    <string name="button_text_update">Update</string>
+    <string name="label_guru_name">GURU Name</string>
+    <string name="hint_enter_six_digit_code">Enter six digit code</string>
+    <string name="label_total_earnings">Total Earnings</string>
+    <string name="label_your_code">Your code</string>
+    <string name="title_recent_earnings">Recent Earnings</string>
+    <string name="title_userwise_earnings">Userwise Earnings</string>
+    <string name="label_s_no">S.no.</string>
+    <string name="label_username">UserName</string>
+    <string name="label_amount_generated">Amount Generated</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_guru_added_successfully">Guru added successfully</string>
+    <string name="title_kaptain11">Kaptain11</string>
+</resources>

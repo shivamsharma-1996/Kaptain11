@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/dimens_12"
+    android:layout_marginStart="@dimen/dimens_16"
+    android:layout_marginEnd="@dimen/dimens_20"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/tvSerialNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="#1"
+        android:textColor="@color/black"
+        android:textSize="13sp"
+        android:letterSpacing="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivUserPic"
+        app:layout_constraintBottom_toBottomOf="@+id/ivUserPic"
+        />
+
+    <ImageView
+        android:id="@+id/ivUserPic"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="42dp"
+        android:src="@drawable/ic_profile_default"
+        app:layout_constraintStart_toEndOf="@+id/tvSerialNo"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Proxxxxxxhu"
+        android:letterSpacing="0.03"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/dimens_4"
+        app:layout_constraintStart_toEndOf="@+id/ivUserPic"
+        app:layout_constraintTop_toTopOf="@+id/ivUserPic"
+        app:layout_constraintBottom_toBottomOf="@+id/ivUserPic"/>
+
+
+    <TextView
+        android:id="@+id/tvAmountGenerated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="₹150.54"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:textColor="@color/green"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivUserPic"
+        app:layout_constraintBottom_toBottomOf="@+id/ivUserPic"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

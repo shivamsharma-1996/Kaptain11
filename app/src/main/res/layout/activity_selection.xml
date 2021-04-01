@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.SelectionActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/main_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/source_sans_pro_semibold"
+                android:lineSpacingExtra="7sp"
+                android:text="@string/title_kaptain11"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSizeMedium2" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <Button
+        android:id="@+id/btnMakeAsGuru"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Make a Guru"
+        android:onClick="launchMakeAsGuru"
+        android:backgroundTint="@color/green"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:layout_marginStart="@dimen/dimens_12"
+        android:layout_marginEnd="@dimen/dimens_12"
+        android:lineSpacingExtra="10sp"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuruDashboard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <Button
+        android:id="@+id/btnGuruDashboard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Guru Dashboard"
+        android:onClick="launchGuruDashboard"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_marginTop="@dimen/dimens_20"
+        android:layout_marginStart="@dimen/dimens_12"
+        android:layout_marginEnd="@dimen/dimens_12"
+        android:lineSpacingExtra="10sp"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:textSize="@dimen/textSizeNormal"
+        app:layout_constraintTop_toBottomOf="@+id/btnMakeAsGuru"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

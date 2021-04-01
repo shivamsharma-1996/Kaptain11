@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="@color/colorPrimary">
+
+    <ImageView
+        android:id="@+id/backImage"
+        android:layout_width="@dimen/dimens_24"
+        android:layout_height="@dimen/dimens_24"
+        android:src="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/toolbarTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:lineSpacingExtra="7sp"
+        android:text="K11 Guru"
+        android:fontFamily="@font/source_sans_pro_semibold"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textSizeMedium2" />
+
+</androidx.appcompat.widget.Toolbar>

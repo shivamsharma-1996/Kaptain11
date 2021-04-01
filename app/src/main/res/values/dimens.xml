@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimens_0">0dp</dimen>
+    <dimen name="dimens_2">2dp</dimen>
+    <dimen name="dimens_4">4dp</dimen>
+    <dimen name="dimens_6">6dp</dimen>
+    <dimen name="dimens_8">8dp</dimen>
+    <dimen name="dimens_10">10dp</dimen>
+    <dimen name="dimens_12">12dp</dimen>
+    <dimen name="dimens_16">16dp</dimen>
+    <dimen name="dimens_18">18dp</dimen>
+    <dimen name="dimens_20">20dp</dimen>
+    <dimen name="dimens_22">22dp</dimen>
+    <dimen name="dimens_24">24dp</dimen>
+    <dimen name="dimens_28">28dp</dimen>
+    <dimen name="dimens_30">30dp</dimen>
+    <dimen name="dimens_32">32dp</dimen>
+    <dimen name="dimens_40">40dp</dimen>
+    <dimen name="dimens_50">50dp</dimen>
+    <dimen name="dimens_56">56dp</dimen>
+    <dimen name="dimens_60">60dp</dimen>
+    <dimen name="dimens_72">72dp</dimen>
+
+
+    <dimen name="textSizeSubMini">10sp</dimen>
+    <dimen name="textSizeMini">12sp</dimen>
+    <dimen name="textSizeNormal">14sp</dimen>
+    <dimen name="textSizeMedium">16sp</dimen>
+    <dimen name="textSizeMedium2">18sp</dimen>
+    <dimen name="textSizeLarge">21sp</dimen>
+    <dimen name="textSizeXLarge">24sp</dimen>
+    <dimen name="textSizeXXLarge">26sp</dimen>
+    <dimen name="textSizeXXXLarge">28sp</dimen>
+    <dimen name="textSizeXXXXLarge">30sp</dimen>
+
+    <dimen name="card_corner_radius">5dp</dimen>
+    <dimen name="card_elevation">4dp</dimen>
+
+</resources>

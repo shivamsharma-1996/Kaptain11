@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.guruDasboard.UserWiseEarningsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/main_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:layout_collapseMode="pin">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back" />
+
+            <TextView
+                android:id="@+id/toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/source_sans_pro_semibold"
+                android:lineSpacingExtra="7sp"
+                android:text="@string/title_userwise_earnings"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textSizeMedium2" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <View
+        android:id="@+id/viewHeadeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/greyLightShadow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvHeaderSrNo"
+        app:layout_constraintBottom_toBottomOf="@+id/tvHeaderSrNo"/>
+
+    <TextView
+        android:id="@+id/tvHeaderSrNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:text="@string/label_s_no"
+        android:letterSpacing="0.01"
+        android:layout_marginStart="@dimen/dimens_16"
+        android:textColor="@color/brownish_grey"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_app_bar"/>
+
+    <TextView
+        android:id="@+id/tvHeaderUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:text="@string/label_username"
+        android:letterSpacing="0.01"
+        android:layout_marginStart="42dp"
+        android:textColor="@color/brownish_grey"
+        app:layout_constraintStart_toEndOf="@+id/tvHeaderSrNo"
+        app:layout_constraintTop_toBottomOf="@+id/main_app_bar"/>
+
+    <TextView
+        android:id="@+id/tvHeaderAmountGenerated"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:text="@string/label_amount_generated"
+        android:letterSpacing="0.01"
+        android:layout_marginEnd="@dimen/dimens_20"
+        android:textColor="@color/brownish_grey"
+        app:layout_constraintTop_toBottomOf="@+id/main_app_bar"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/viewUnderline"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/grey_300"
+        app:layout_constraintTop_toBottomOf="@+id/viewHeadeLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/viewUnderline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvUserwiseEarnings"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/item_userwise_earnings"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
